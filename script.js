@@ -4,11 +4,10 @@
 // 
 
 class ToDoItem {
-    constructor(id, title, description, date, priority, complete) {
+    constructor(id, title, description, priority, complete) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.date = date;
         this.priority = priority;
         this.complete = complete;
     }
@@ -22,4 +21,10 @@ class Project {
     }
 }
 
+
+// 
+document.querySelector(".newItem").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+})
 

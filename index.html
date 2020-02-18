@@ -4,10 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>To Do</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    
+    <header>
+        <h1>To Do</h1>
+    </header>
+    <body>
+        <form class="newItem">
+            <label for="title"></label>
+            <input type="text" id="title" placeholder="Title">
+            <label for="description"></label>
+            <input type="text" id="description" placeholder="Add Note Here">
+            <label for="priority"></label>
+            <select name="priority" id="priority">
+                <option value="0">Low</option>
+                <option value="1" selected>Neutral</option>
+                <option value="2">High</option>
+            </select>
+            <input type="submit" value="New Item">
+        </form>
+    </body>
+    <footer>
+
+    </footer>
+
     <script src="./script.js"></script>
 </body>
 </html>

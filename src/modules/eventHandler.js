@@ -1,4 +1,5 @@
 import ToDoItem from "./toDoClass";
+import renderList from "./render";
 
 const submitEvent = (currentProject) => {
     document.querySelector(".newItem").addEventListener("submit", (e) => {
@@ -7,6 +8,7 @@ const submitEvent = (currentProject) => {
         // console.log(noteValue);
         currentProject.addToList(ToDoItem(noteValue));
         console.log(currentProject);
+        renderList();
     })
 }
 

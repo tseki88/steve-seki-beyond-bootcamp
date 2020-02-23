@@ -6,21 +6,25 @@ const renderList = () => {
     while (listContainer.firstChild) {
         listContainer.removeChild(listContainer.lastChild);
     }
+    
     currentProject.toDoList.map((e) => {
         
-        const listItem = document.createElement("li");
+        const li = document.createElement("li");
         const checkbox = document.createElement("input")
-        checkbox.setAttribute("type", "checkbox");
-        checkbox.setAttribute("class", "listItem");
+        checkbox.setAttribute("class", "toDoItem");
+        checkbox.setAttribute("id", e.id)
+        checkbox.type = "checkbox";
         checkbox.checked = e.completed;
-        checkbox.addEventListener("change", e.toggleComplete);
-        listItem.appendChild(checkbox);
+        checkbox.addEventListener("change", () => {
+            currentProject.toDoList.findIndex(e.id)
+        });
+        li.appendChild(checkbox);
 
-        const titleText = document.createElement("p");
-        titleText.innerHTML = e.title;
-        listItem.appendChild(titleText);
+        const label = document.createElement("label");
+        label.innerHTML = e.title;
+        li.appendChild(label);
 
-        listContainer.appendChild(listItem);
+        listContainer.appendChild(li);
         console.log(e)
     })
 

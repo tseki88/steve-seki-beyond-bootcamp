@@ -1,11 +1,4 @@
-import Project from "./modules/projectClass";
-import submitEvent from './modules/eventHandler';
-
-// Initializes a default project
-const Main = Project("mainProject");
-
-// State of current project directory
-let currentProject = Main;
+import toDoController from './modules/toDoController'
 
 const headerComponent = () => {
     const header = document.createElement("header");
@@ -15,8 +8,6 @@ const headerComponent = () => {
 
     return header;
 }
-
-document.body.appendChild(headerComponent());
 
 const formComponent = () => {
     const form = document.createElement("form");
@@ -47,7 +38,6 @@ const formComponent = () => {
     return form
 }
 
-document.body.appendChild(formComponent());
 
 const listComponent = () => {
     const listContainer = document.createElement("ul");
@@ -55,10 +45,9 @@ const listComponent = () => {
     return listContainer;
 }
 
+document.body.appendChild(headerComponent());
+document.body.appendChild(formComponent());
 document.body.appendChild(listComponent());
 
-// links the submit to current project list
-submitEvent(Main);
-// console.log(Main)
 
-export { currentProject };
+toDoController.init();

@@ -1,5 +1,5 @@
-import ToDoItem from "./toDoClass";
-import renderList from "./render";
+import app from "./toDoModel";
+import renderList from "./toDoView";
 
 const submitEvent = (currentProject) => {
     document.querySelector(".newItem").addEventListener("submit", (e) => {

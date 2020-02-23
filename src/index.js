@@ -59,6 +59,6 @@ document.body.appendChild(listComponent());
 
 // links the submit to current project list
 submitEvent(Main);
-console.log(Main)
+// console.log(Main)
 
 export { currentProject };

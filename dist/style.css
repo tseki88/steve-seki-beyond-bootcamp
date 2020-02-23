@@ -1,5 +1,19 @@
+body {
+    margin: 0 auto;
+    width: 60%;
+    
+}
+
 form {
     display: flex;
     flex-direction: column;
     width: 500px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: flex;
 }

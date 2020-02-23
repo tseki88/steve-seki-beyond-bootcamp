@@ -8,7 +8,10 @@ const submitEvent = (currentProject) => {
         currentProject.addToList(ToDoItem(noteValue));
         console.log(currentProject);
         renderList();
+        // toggleComplete();
     })
 }
+
+
 
 export default submitEvent;

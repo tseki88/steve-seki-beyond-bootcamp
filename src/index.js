@@ -1,6 +1,6 @@
-// import 
 import toDoController from './modules/toDoController';
 
+// Initial DOM Render
 const headerComponent = () => {
     const header = document.createElement("header");
     const h1 = document.createElement("h1");
@@ -14,6 +14,7 @@ const formComponent = () => {
     const form = document.createElement("form");
     form.setAttribute("class", "newItem");
 
+    // FormElement Helper
     const createFormElement = (element, attributes) => {
         const newElement = document.createElement(element);
 
@@ -39,9 +40,16 @@ const formComponent = () => {
     return form
 }
 
-const root = document.getElementById("content");
 
+const listComponent = () => {
+    const ul = document.createElement("ul");
+    ul.setAttribute("id", "currentList")
+    return ul;
+}
+
+const root = document.getElementById("content");
 root.appendChild(headerComponent());
 root.appendChild(formComponent());
+root.appendChild(listComponent());    
 
 toDoController.init();

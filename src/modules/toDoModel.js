@@ -10,9 +10,8 @@ const Project = (title) => {
     const state = {
         toDoList: [],
         title,
+        idCounter: 1,
     }
-
-    let idCounter = 1;
 
     const getList = () => state.toDoList;
 
@@ -20,22 +19,25 @@ const Project = (title) => {
         if (!toDoItem) return;
 
         const item = ToDoItem(toDoItem);
-        item.id = idCounter;
-        idCounter++;
+        item.id = state.idCounter;
+        state.idCounter++;
         state.toDoList.push(item)
     }
     
     const removeFromList = (id) => {
         const list = state.toDoList;
-        const index = list.findIndex((item) => item.id === id);
+        const index = list.findIndex((item) => {
+            return item.id === parseInt(id);
+        });
         list.splice(index, 1);
-        console.log(list);
-        console.log(state.toDoList);
     }
     
     const toggleComplete = (id) => {
-        const item = document.querySelector(id);
-        item.isCompleted = !item.isCompleted;
+        const list = state.toDoList;
+        const index = list.findIndex((item) => {
+            return item.id === parseInt(id)
+        });
+        list[index].isCompleted = !list[index].isCompleted;
     }
 
     const togglePriority = (id) => {
@@ -58,4 +60,3 @@ const app = (() => {
 })();
 
 export default app;
-export {Project }

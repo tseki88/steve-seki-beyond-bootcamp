@@ -1,20 +1,6 @@
 const toDoView = () => {
-    
-    const renderList = () => {
-        
-        const listComponent = () => {
-            const ul = document.createElement("ul");
-            ul.setAttribute("id", "currentList")
-            return ul;
-        }
-
-        const root = document.getElementById("content");
-        root.appendChild(listComponent());    
-        
-    }
         
     const displayItems = (toDoList) => {
-
         const ul = document.getElementById("currentList");
         // Empty and re-render list
         while (ul.firstChild) {
@@ -23,25 +9,45 @@ const toDoView = () => {
         
         toDoList.forEach((e) => {            
             const li = document.createElement("li");
+            li.setAttribute("id", e.id)
+            
             const checkbox = document.createElement("input")
             checkbox.setAttribute("class", "toDoItem");
-            checkbox.setAttribute("id", e.id)
             checkbox.type = "checkbox";
-            checkbox.checked = e.completed;
+            checkbox.checked = e.isCompleted;
             li.appendChild(checkbox);
-    
+            
+            
             const label = document.createElement("label");
             label.innerHTML = e.title;
             li.appendChild(label);
-    
+
+            const deleteButton = document.createElement("button");
+            deleteButton.setAttribute("class","deleteButton");
+            // deleteButton.setAttribute("")
+            deleteButton.innerHTML = "delete";
+            li.appendChild(deleteButton);
+            
             ul.appendChild(li);
-            console.log(e)
+        })        
+    }
+    
+    const bindDelete = (handler) => {
+        document.querySelectorAll(".deleteButton").forEach((e) => {
+            e.addEventListener("click", handler);
+        })
+    }
+
+    const bindToggle = (handler) => {
+        document.querySelectorAll(".toDoItem").forEach((e) => {
+            e.addEventListener("change", handler);
         })
     }
 
     return {
-        renderList,
         displayItems,
+        bindToggle,
+        bindDelete,
     }
 }
 

@@ -1,6 +1,3 @@
-import { currentProject } from "../index";
-
-
 const toDoView = () => {
     
     const renderList = () => {
@@ -11,7 +8,8 @@ const toDoView = () => {
             return ul;
         }
 
-        document.body.appendChild(listComponent());    
+        const root = document.getElementById("content");
+        root.appendChild(listComponent());    
         
     }
         

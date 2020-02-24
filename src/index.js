@@ -1,3 +1,4 @@
+// import 
 import toDoController from './modules/toDoController';
 
 const headerComponent = () => {
@@ -38,7 +39,9 @@ const formComponent = () => {
     return form
 }
 
-document.body.appendChild(headerComponent());
-document.body.appendChild(formComponent());
+const root = document.getElementById("content");
+
+root.appendChild(headerComponent());
+root.appendChild(formComponent());
 
 toDoController.init();

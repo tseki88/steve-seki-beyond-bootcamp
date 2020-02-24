@@ -1,4 +1,4 @@
-import toDoController from './modules/toDoController'
+import toDoController from './modules/toDoController';
 
 const headerComponent = () => {
     const header = document.createElement("header");
@@ -38,16 +38,7 @@ const formComponent = () => {
     return form
 }
 
-
-const listComponent = () => {
-    const listContainer = document.createElement("ul");
-    listContainer.setAttribute("id", "currentList")
-    return listContainer;
-}
-
 document.body.appendChild(headerComponent());
 document.body.appendChild(formComponent());
-document.body.appendChild(listComponent());
-
 
 toDoController.init();

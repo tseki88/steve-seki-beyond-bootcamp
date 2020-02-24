@@ -1,24 +1,36 @@
 import app from './toDoModel';
+import toDoView from './toDoView';
 
 const toDoController = (() => {
     // const renderList = (project) => {
-        
+    //     app.getList().forEach((item) => {
+    //         const { id } = item;
+    //         // const name = 
+    //     })    
     //     const listItems = [];
 
         
     // }
+    const submitEvent = () => {
+        document.querySelector(".newItem").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const noteValue = document.querySelector("#title").value;
+            app.addToList(noteValue);
+            toDoView().displayItems(app.getList());
+        })
+    }
 
-    // const 
 
-})
+    const view = toDoView();
+    
+    const init = () => {
+        view.renderList();
+        view.displayItems(app.getList());
+        submitEvent();
+    }
 
-// links the submit to current project list
-// submitEvent(defaultProject);
-// console.log(Main)
+    return {init}
 
-const init = () => {
+})();
 
-}
-
-export default init;
-// export { currentProject };
+export default toDoController;

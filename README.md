@@ -1,12 +1,13 @@
 # Beyond Bootcamp - JavaScript Project
 
 ## Project - To Do List
-Objective of project: to utilize the JavaScript proptotype object to its full extent.
+Utilizing JavaScript without any external libraries/frameworks.
+Demonstrating the use of MVC pattern.
 
 ## MVP
  - Add, Remove, Completed functionality per to do item.
 
 ## Stretch Goals
- - Convert to Note Taking App (like google keep)
+ - Projects (each project has unique to do list)
  - Categorization / Filter based on note type
  - Reorder capability (user drag)

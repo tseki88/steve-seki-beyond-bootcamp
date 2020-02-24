@@ -16,9 +16,12 @@ const toDoView = () => {
             checkbox.type = "checkbox";
             checkbox.checked = e.isCompleted;
             li.appendChild(checkbox);
-            
-            
+                        
             const label = document.createElement("label");
+            label.setAttribute("class", "toDoText");
+            if (e.isCompleted) {
+                label.classList.add("toDoComplete");
+            }
             label.innerHTML = e.title;
             li.appendChild(label);
 
@@ -39,6 +42,10 @@ const toDoView = () => {
     }
 
     const bindToggle = (handler) => {
+        document.querySelectorAll(".toDoText").forEach((e) => {
+            e.addEventListener("click", handler);
+        })
+
         document.querySelectorAll(".toDoItem").forEach((e) => {
             e.addEventListener("change", handler);
         })
@@ -51,4 +58,39 @@ const toDoView = () => {
     }
 }
 
+const projectView = () => {
+    const displayProjects = (project) => {
+        const ul = document.getElementById("projectList");
+        while (ul.firstChild) {
+            ul.removeChild(ul.lastChild);
+        }
+
+        project.forEach((e) => {
+            const li = document.createElement("li");
+            li.setAttribute("id", e.id)
+            
+            const label = document.createElement("label");
+            label.setAttribute("class", "toDoText");
+            // if (e.isCompleted) {
+            //     label.classList.add("toDoComplete");
+            // }
+        
+            label.innerHTML = e.project.getTitle();
+            li.appendChild(label);
+
+            // const deleteButton = document.createElement("button");
+            // deleteButton.setAttribute("class","deleteButton");
+            // deleteButton.innerHTML = "delete";
+            // li.appendChild(deleteButton);
+            
+            ul.appendChild(li);
+        })
+    }
+
+    return {
+        displayProjects,
+    }
+}
+
 export default toDoView;
+export { projectView };

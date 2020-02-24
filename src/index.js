@@ -47,9 +47,33 @@ const listComponent = () => {
     return ul;
 }
 
+const asideContainer = () => {
+    const aside = document.createElement("aside");
+    aside.setAttribute("id","aside");
+    
+    const ul = document.createElement("ul");
+    ul.setAttribute("id", "projectList");
+    aside.appendChild(ul)
+    return aside;
+}
+
+const mainContainer = () => {
+    const main = document.createElement("main");
+    main.setAttribute("id","main");
+    main.appendChild(formComponent());
+    main.appendChild(listComponent());    
+    return main
+}
+
+const divContainer = () => {
+    const div = document.createElement("div");
+    div.setAttribute("id", "container");
+    div.appendChild(asideContainer());
+    div.appendChild(mainContainer());
+    return div;
+}
+
 const root = document.getElementById("content");
 root.appendChild(headerComponent());
-root.appendChild(formComponent());
-root.appendChild(listComponent());    
-
+root.appendChild(divContainer());
 toDoController.init();
